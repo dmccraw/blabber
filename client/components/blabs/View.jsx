@@ -28,7 +28,7 @@ module.exports = React.createClass({
     }.bind(this));
   },
 
-  optimistcUpdate: function(blab) {
+  optimisticUpdate: function(blab) {
     var blabs = this.state.data;
     blabs.unshift(blab);
     this.setState({data: blabs});

@@ -9,7 +9,7 @@ class BlabsController < ApplicationController
   def create
     @blab = @current_user.blabs.build(blab_params)
     if @blab.save
-      render json: @blabs, include: { user: { only: [:handle] } }, only: [:id, :content]
+      render json: @blab, include: { user: { only: [:handle] } }, only: [:id, :content]
     else
       render json: @blab.errors, status: :unprocessable_entity
     end
