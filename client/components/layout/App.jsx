@@ -52,7 +52,23 @@ module.exports = React.createClass({
       success: successFunction,
       error: function(error) {
         console.error(url, error['response']);
-        // location = '/';
+        location = '/';
+      }
+    });
+  },
+
+  writeToAPI: function(method, url, data, successFunction) {
+    Reqwest({
+      url: url,
+      data: data,
+      type: 'json',
+      method: method,
+      contentType: 'application/json',
+      headers: { 'Authorization': sessionStorage.getItem("jwt") },
+      success: successFunction,
+      errors: function(error) {
+        console.error(url, error['response']);
+        location = '/';
       }
     });
   },
@@ -69,6 +85,8 @@ module.exports = React.createClass({
           <RouteHandler
             origin={this.props.origin}
             readFromAPI={this.readFromAPI}
+            writeToAPI={this.writeToAPI}
+            currentUser={this.state.currentUser}
             signedIn={this.state.signedIn} />
         </div>
       </div>

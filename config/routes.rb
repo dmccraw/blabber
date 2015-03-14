@@ -6,5 +6,5 @@ Rails.application.routes.draw do
   get 'access_token', to: 'tokens#access_token'
   get 'client_token', to: 'tokens#client_token'
 
-  resources :blabs, only: [:index]
+  resources :blabs, only: [:index, :create, :show]
 end

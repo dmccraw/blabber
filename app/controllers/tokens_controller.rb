@@ -19,7 +19,6 @@ class TokensController < ApplicationController
   def client_token
     # pass in a block so that you can update the handle of the user if it already exists
     user = User.find_or_create_by(uid: params[:uid]) { |u| u.handle = params[:handle] }
-
     jwt = JWT.encode({uid: user.uid, exp: 1.day.from_now.to_i}, Rails.application.secrets.secret_key_base)
     redirect_to "#{ENV['ORIGIN']}?jwt=#{jwt}"
   end
