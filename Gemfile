@@ -10,3 +10,7 @@ gem 'pg'
 gem 'oauth'
 gem 'jwt'
 gem 'awesome_print'
+
+group :production do
+  gem 'rails_12factor'
+end
