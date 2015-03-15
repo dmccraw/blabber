@@ -9,7 +9,10 @@ gem 'pg'
 
 gem 'oauth'
 gem 'jwt'
-gem 'awesome_print'
+
+group :development, :test do
+  gem 'awesome_print'
+end
 
 group :production do
   gem 'rails_12factor'

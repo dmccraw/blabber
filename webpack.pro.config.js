@@ -1,5 +1,5 @@
-var config = require("./webpack.config.js");
-var webpack = require("webpack");
+var config = require('./webpack.config.js');
+var webpack = require('webpack');
 
 config.plugins.push(
   new webpack.DefinePlugin({
@@ -16,3 +16,5 @@ config.plugins.push(
     }
   })
 );
+
+module.exports = config;
